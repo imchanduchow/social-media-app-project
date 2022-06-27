@@ -1,1 +1,1 @@
-![ER Diagram!](/public/images/erd-final.png)
+!(/public/images/erd-final.png)
