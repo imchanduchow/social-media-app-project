@@ -1,0 +1,102 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: #EED6C4;
+}
+
+.navbar {
+  background-color: #483434;
+}
+
+h1 {
+  text-align: center;
+  color: #483434;
+  margin: 1rem auto;
+  letter-spacing: 2px;
+}
+
+.btn {
+  margin-left: 84%;
+  margin-bottom: 1rem;
+  background-color: #483434;
+  color: #fff;
+}
+
+.main {
+  margin: auto 3rem;
+}
+
+a {
+  color: #333;
+}
+
+input {
+  margin-bottom: 1rem;
+  width: 70%;
+}
+
+label {
+  margin-bottom: 0.3rem;
+}
+
+.btn-form {
+  margin: 0;
+}
+
+.input-form {
+  width: 60%;
+  margin: 0 3rem;
+}
+
+.btn-left {
+  margin-left: 0;
+}
+
+.login {
+  width: 80%;
+  margin-left: 20%;
+  margin-bottom: 3rem;
+}
+
+.h1-main {
+  text-align: left;
+  margin-left: 25%;
+}
+

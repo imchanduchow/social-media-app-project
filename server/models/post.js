@@ -5,7 +5,7 @@ const User = require('./user');
 
 // 2. creating schema for post entity
 const postSchema = new mongoose.Schema({
-  username: { type: String, required: true},
+  user_id: { type: String, required: true},
   content: { type: String, required: true}
 });
 
@@ -19,7 +19,7 @@ async function newPost(username, content) {
   if(!user) throw Error('Please register to continue');
 
   const newPost = await Post.create({
-    username: username,
+    user_id: username,
     content: content
   });
 
