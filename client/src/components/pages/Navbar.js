@@ -1,13 +1,14 @@
-import './App.css';
+import {Outlet, Link} from "react-router-dom";
+import '../../App.css';
 
 function Navbar() {
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
+          <Link className="navbar-brand" to="/">
+            App
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,25 +23,26 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" to="/profile">
                   Profile
-          </a>
+          </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/login">
                   Login
-          </a>
+          </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/register">
                   Register
-          </a>
+          </Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
+    <Outlet />
     </div>
   );
 }

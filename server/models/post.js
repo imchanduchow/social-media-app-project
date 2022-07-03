@@ -15,8 +15,6 @@ const Post = mongoose.model("Post", postSchema);
 // 4. writing CRUD operations on post model
 // i) C - CREATE post
 async function newPost(username, content) {
-  const user = await User.getUser(username);
-  if(!user) throw Error('Please register to continue');
 
   const newPost = await Post.create({
     user_id: username,
@@ -28,7 +26,7 @@ async function newPost(username, content) {
 
 // ii) R - READ post
 async function viewPost(pid) {
-    return await Post.findOne({ "_id": pid});
+    return await Post.find({ "user_id": pid});
 }
 
 // iii) U - UPDATE post
