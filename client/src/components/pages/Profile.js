@@ -46,6 +46,7 @@ const Profile = (props) => {
             "POST")
             .then((info) => {
               if (!info.message) {
+                setPost({content: ''});
                 navigate("/profile", { state: { name: location.state.name, data: info } });
               }
             })
