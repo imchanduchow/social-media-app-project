@@ -1,7 +1,36 @@
 import {Outlet, Link} from "react-router-dom";
 import '../../App.css';
+import UserContext from "../../Context/userContext";
+import { useContext, Fragment } from "react";
 
-function Navbar() {
+const Navbar = () => {
+  const { user } = useContext(UserContext);
+
+  const authenticated = (
+    <Fragment>
+      <li className="nav-item">
+                <Link className="nav-link active" to="/profile">
+                  Profile
+          </Link>
+              </li>
+    </Fragment>
+  )
+
+  const guest = (
+    <Fragment>
+      <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+          </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/register">
+                  Register
+          </Link>
+              </li>
+    </Fragment>
+  )
+
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,21 +51,7 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link active" to="/profile">
-                  Profile
-          </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-          </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Register
-          </Link>
-              </li>
+              {user.authenticated ? authenticated : guest}
             </ul>
           </div>
         </div>

@@ -1,23 +1,31 @@
 import '../../App.css';
 import { fetchData } from "../../main.js";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../../Context/userContext.js";
 
 const LoginForm = () => {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState({
-    username: '',
-    password: ''
-  });
+  const {user, updateUser} = useContext(UserContext);
 
-  const { username, password } = user;  
+  const {username, password} = user;  
 
-  const onChange = (e) => setUser({...user, [e.target.name]: e.target.value})
+  const onChange = (e) => updateUser(e.target.name, e.target.value)
+
+  // const {user, updateUser} = useContext(UserContext);
+
+  // const [user, setUser] = useState({
+  //   username: '',
+  //   password: ''
+  // });
+
+  // const { username, password } = user;  
+
+  // const onChange = (e) => setUser({...user, [e.target.name]: e.target.value})
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('submitted');
     fetchData("/user/login", 
       {
        username,
@@ -26,9 +34,9 @@ const LoginForm = () => {
       "POST")
     .then((data) => {
       if(!data.message) {
-        console.log(data);
+        updateUser("authenticated", true)
 
-        var id = username
+        var id = username;
 
         fetchData("/post/viewpost",
         {

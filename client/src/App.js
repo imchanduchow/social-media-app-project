@@ -7,9 +7,12 @@ import Navbar from './components/pages/Navbar';
 import About from './components/pages/About';
 import Profile from './components/pages/Profile';
 
+import { UserProvider } from './Context/userContext';
+
 function App() {
   return (
     <div className="App">
+      <UserProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navbar />}>
@@ -20,6 +23,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </UserProvider>
     </div>
   );
 }
